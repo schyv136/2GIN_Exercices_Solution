@@ -1,0 +1,14 @@
+false
+true
+true
+true
+true
+true
+"School","908","282"
+"Employee","379","245"
+"Teacher","559","385"
+"Doctor","534","141"
+"Hospital","899","98"
+"Client","429","30"
+"Student","383","528"
+"Person","110","183"

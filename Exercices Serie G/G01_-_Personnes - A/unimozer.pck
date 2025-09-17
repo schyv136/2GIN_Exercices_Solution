@@ -1,0 +1,12 @@
+false
+true
+true
+true
+true
+true
+"Employee","400","301"
+"Teacher","196","478"
+"Doctor","477","478"
+"Client","599","301"
+"Student","109","303"
+"Person","381","11"

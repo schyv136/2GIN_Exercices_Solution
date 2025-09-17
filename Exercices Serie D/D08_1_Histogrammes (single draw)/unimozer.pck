@@ -1,0 +1,10 @@
+false
+true
+true
+true
+true
+true
+"MainFrame","13","314"
+"DrawPanel","621","35"
+"NumberInfos","597","287"
+"NumberInfo","339","874"

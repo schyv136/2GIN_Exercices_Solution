@@ -1,0 +1,9 @@
+false
+true
+true
+true
+true
+true
+"MainFrame","10","158"
+"DrawPanel","10","10"
+"Turtle","421","10"

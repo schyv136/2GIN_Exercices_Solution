@@ -1,0 +1,12 @@
+false
+true
+true
+true
+true
+true
+"model.MovingObject","969","605"
+"model.Game","681","605"
+"gui.MainFrame","35","227"
+"gui.DrawPanel","35","73"
+"model.Block","1197","245"
+"model.Ball","1187","81"

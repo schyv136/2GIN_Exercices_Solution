@@ -1,0 +1,9 @@
+false
+true
+true
+true
+true
+true
+"MainFrame","110","388"
+"Polynomial","428","38"
+"DrawPanel","61","142"

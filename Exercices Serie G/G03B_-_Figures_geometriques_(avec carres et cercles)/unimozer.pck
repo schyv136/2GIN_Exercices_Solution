@@ -1,0 +1,17 @@
+false
+true
+true
+true
+true
+true
+"Square","76","655"
+"Circle","292","748"
+"IrregularShape","880","500"
+"Shapes","798","23"
+"MainFrame","1432","15"
+"Triangle","663","704"
+"DrawPanel","1074","133"
+"Rectangle","896","806"
+"Ellipse","1145","703"
+"Shape","629","242"
+"RegularShape","265","501"

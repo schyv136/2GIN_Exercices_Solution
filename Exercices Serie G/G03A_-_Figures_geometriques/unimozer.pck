@@ -1,0 +1,12 @@
+false
+true
+true
+true
+true
+true
+"Circle","512","352"
+"Square","286","352"
+"Triangle","398","269"
+"Rectangle","277","268"
+"Ellipse","510","270"
+"Shape","357","95"

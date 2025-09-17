@@ -1,0 +1,9 @@
+false
+true
+true
+true
+true
+true
+"InscriptionList","13","17"
+"Participant","218","184"
+"MainFrame","10","424"

@@ -1,0 +1,9 @@
+false
+true
+true
+true
+true
+true
+"MainFrame","15","20"
+"Game","585","766"
+"GameStock","339","672"

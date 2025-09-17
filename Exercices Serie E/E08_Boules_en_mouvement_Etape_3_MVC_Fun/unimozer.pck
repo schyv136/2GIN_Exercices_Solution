@@ -1,0 +1,10 @@
+false
+true
+true
+true
+true
+true
+"MainFrame","602","511"
+"Ball","89","72"
+"DrawPanel","658","69"
+"MovingBall","342","189"

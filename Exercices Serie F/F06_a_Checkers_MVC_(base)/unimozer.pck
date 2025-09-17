@@ -1,0 +1,10 @@
+false
+true
+true
+true
+true
+true
+"MainFrame","234","5"
+"Piece","303","556"
+"DrawPanel","136","328"
+"Checkers","515","364"

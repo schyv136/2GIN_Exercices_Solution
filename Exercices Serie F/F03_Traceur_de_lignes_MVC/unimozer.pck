@@ -1,0 +1,10 @@
+false
+true
+true
+true
+true
+true
+"Line","490","446"
+"DrawPanel","19","356"
+"MainFrame","122","26"
+"Lines","247","518"
