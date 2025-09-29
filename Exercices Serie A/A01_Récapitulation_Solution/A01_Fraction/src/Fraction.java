@@ -4,7 +4,7 @@
  * standard entre fractions
  *
  * @author	Fred Faber, Georges Kugener, Yvon Schubert
- * @version	24/09/2019
+ * @version	24/09/2025
  */
 public class Fraction {
 
