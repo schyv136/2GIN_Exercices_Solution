@@ -3,7 +3,7 @@
  * La classe Fraction sert à effectuer des opérations
  * standard entre fractions
  *
- * @author	Fred Faber, Georges Kugener
+ * @author	Fred Faber, Georges Kugener, Yvon Schubert
  * @version	24/09/2019
  */
 public class Fraction {
@@ -72,6 +72,7 @@ public class Fraction {
 //    }
 
 
+    //
     public int getNumerator() {
         return numerator;
     }
