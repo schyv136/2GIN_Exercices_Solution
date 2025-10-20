@@ -18,6 +18,13 @@ public class RandomNumbers {
         }
     }
 
+    public void addSeriesIncorrect(int count, long min, long max){
+        Randomizer ran = new Randomizer(min, max);
+        for (int i = 0; i < count; i++) {
+            alNumbers.add(ran.getNextIncorrect());
+        }
+    }
+
     public void clear() {
         alNumbers.clear();
     }
@@ -65,6 +72,16 @@ public class RandomNumbers {
      */
     public int size() {
         return alNumbers.size();
+    }
+
+    public int count(long n){
+        int counter=0;
+        for(int i=0;i<alNumbers.size();i++){
+            if(alNumbers.get(i)==n){
+                counter++;
+            }
+        }
+        return counter;
     }
 
 }

@@ -41,6 +41,12 @@ public class Randomizer {
         return (long) (Math.random() * (max - min + 1)) + min;
     }
 
+    public long getNextIncorrect(){
+        return (long) (Math.random()*(max-min+1)+min);
+    }
+
+    
+
     /**
      * Affiche une série de n nombres aléatoires entre les bornes actuelles -->
      * sert seulement à tester la classe en Unimozer -- --- mis en entre
