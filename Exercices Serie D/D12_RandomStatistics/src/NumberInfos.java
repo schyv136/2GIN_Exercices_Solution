@@ -8,15 +8,37 @@ import java.util.ArrayList;
  * @author fred
  */
 public class NumberInfos {
-    /** la série des nombres avec leur description */
+
+    /**
+     * la série des nombres avec leur description
+     */
     private ArrayList<NumberInfo> alNumberInfos = new ArrayList<>();
-    
-    /** le titre de la série */
+
+    /**
+     * le titre de la série
+     */
     private String title;
 
-    /** 
+    private boolean showTitle = true;
+    private boolean showLabels = true;
+    private boolean showValues = true;
+
+    public void setShowTitle(boolean showTitle) {
+        this.showTitle = showTitle;
+    }
+
+    public void setShowLabels(boolean showLabels) {
+        this.showLabels = showLabels;
+    }
+
+    public void setShowValues(boolean showValues) {
+        this.showValues = showValues;
+    }
+
+    /**
      * constructeur de la série
-     * @param le nouveau titre 
+     *
+     * @param le nouveau titre
      */
     public NumberInfos(String title) {
         this.title = title;
@@ -24,6 +46,7 @@ public class NumberInfos {
 
     /**
      * accesseur pour le titre
+     *
      * @return le titre de la série
      */
     public String getTitle() {
@@ -32,87 +55,98 @@ public class NumberInfos {
 
     /**
      * Ajout d'une nouvelle paire (valeur, libellé)
+     *
      * @param value la valeur numérique
      * @param label la description
      */
     public void add(double value, String label) {
         alNumberInfos.add(new NumberInfo(value, label));
     }
-    
+
     /**
      * calcule le total des valeurs mémorisées
+     *
      * @return le total des valeurs mémorisées
      */
     public double getTotal() {
-        double result=0;
-        for(int i=0 ; i<alNumberInfos.size() ; i++) 
-            result = result + alNumberInfos.get(i).getValue(); 
+        double result = 0;
+        for (int i = 0; i < alNumberInfos.size(); i++) {
+            result = result + alNumberInfos.get(i).getValue();
+        }
         return result;
     }
-    
+
     /**
      * calcule le maximum des valeurs mémorisées
+     *
      * @return le maximum des valeurs mémorisées
      */
     public double getMaximum() {
-        double result=0;
-        for(int i=0 ; i<alNumberInfos.size() ; i++) 
-            if(result < alNumberInfos.get(i).getValue())
-                result = alNumberInfos.get(i).getValue(); 
+        double result = 0;
+        for (int i = 0; i < alNumberInfos.size(); i++) {
+            if (result < alNumberInfos.get(i).getValue()) {
+                result = alNumberInfos.get(i).getValue();
+            }
+        }
         return result;
     }
-    
+
     /**
      * retour du contenu de la liste sous forme de tableau
-     * @return 
+     *
+     * @return
      */
     public Object[] toArray() {
         return alNumberInfos.toArray();
     }
 
-    public int size()
-    {
+    public int size() {
         return alNumberInfos.size();
     }
 
-    public NumberInfo get(int i)
-    {
+    public NumberInfo get(int i) {
         return alNumberInfos.get(i);
     }
-    
+
     /**
      * dessine la ligne sur le canevas g
-     * @param g  le canevas cible
-     * @param pWidth  largeur du canevas
+     *
+     * @param g le canevas cible
+     * @param pWidth largeur du canevas
      * @param pHeight hauteur du canevas
      */
-     public void draw(Graphics g, int pWidth, int pHeight) {
-        int height = pHeight-1; //pour éviter de dépasser en bas du panneau
-        int width  = pWidth -1; //pour éviter de dépasser à droite du panneau
-        
-        if (size()>0) {
-            double barWidth = (double)width/size();
-            for (int i=0 ; i<size() ; i++) {
+    public void draw(Graphics g, int pWidth, int pHeight) {
+        int height = pHeight - 1; //pour éviter de dépasser en bas du panneau
+        int width = pWidth - 1; //pour éviter de dépasser à droite du panneau
+
+        if (size() > 0) {
+            double barWidth = (double) width / size();
+            for (int i = 0; i < size(); i++) {
                 //choix de la couleur (alternativement orange et jaune)
                 Color color;
-                if(i%2==0) color = Color.YELLOW;
-                else       color = Color.ORANGE;
-                
+                if (i % 2 == 0) {
+                    color = Color.YELLOW;
+                } else {
+                    color = Color.ORANGE;
+                }
+
                 //affichage du fond des rectangles
-                alNumberInfos.get(i).draw(g, color, 
-                        (int)(i*barWidth),    //coord left
-                        height,               //coord bottom
-                        (int)barWidth,        //largeur
-                        (double)height/getMaximum());  //facteur d'agrandissement en hauteur              
+                alNumberInfos.get(i).draw(g, color,
+                        (int) (i * barWidth), //coord left
+                        height, //coord bottom
+                        (int) barWidth, //largeur
+                        (double) height / getMaximum(), showLabels, showValues);  //facteur d'agrandissement en hauteur              
             }
-            
             //afficher le titre
-            g.setColor(Color.DARK_GRAY);
-            g.drawString( title, 3, 11);
-            g.setColor(Color.BLACK);
-            g.drawString( title, 2, 10);  
-        }        
-            
-    }    
-    
+            if (showTitle) {
+                g.setColor(Color.DARK_GRAY);
+                g.drawString(title, 3, 11);
+                g.setColor(Color.BLACK);
+                g.drawString(title, 2, 10);
+            }
+
+        }
+
+    }
+
 }

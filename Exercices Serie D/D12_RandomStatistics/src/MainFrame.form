@@ -49,6 +49,11 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -142,18 +147,30 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="showTitleCheckBox">
           <Properties>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Show Title"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="showTitleCheckBoxStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="showLabelsCheckBox">
           <Properties>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Show Labels"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="showLabelsCheckBoxStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="showValuesCheckBox">
           <Properties>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Show Values"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="showValuesCheckBoxStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="correctFormulaButton">
           <Properties>

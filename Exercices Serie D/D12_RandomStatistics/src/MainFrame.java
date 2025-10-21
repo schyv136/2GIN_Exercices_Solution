@@ -8,20 +8,30 @@
  * @author SchYv136
  */
 public class MainFrame extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
 
-    private RandomNumbers randomNumbers=new RandomNumbers();
+    private RandomNumbers randomNumbers = new RandomNumbers();
+    private NumberInfos numberInfos;
+
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        setTitle("Random Statistics");
     }
-    
-    public void updateView(){
-        //numbersInfoList.setListData(randomNumbers.);
-        
+
+    public void updateView() {
+        if (numberInfos != null) {
+            numbersInfoList.setListData(numberInfos.toArray());
+            drawPanel.setNumberInfo(numberInfos);
+            numberInfos.setShowTitle(showTitleCheckBox.isSelected());
+            numberInfos.setShowLabels(showLabelsCheckBox.isSelected());
+            numberInfos.setShowValues(showValuesCheckBox.isSelected());
+            repaint();
+        }
+
     }
 
     /**
@@ -51,17 +61,37 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+
         jLabel1.setText("Min value:");
 
         jLabel2.setText("Max value:");
 
         jLabel3.setText("Number of values:");
 
+        showTitleCheckBox.setSelected(true);
         showTitleCheckBox.setText("Show Title");
+        showTitleCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                showTitleCheckBoxStateChanged(evt);
+            }
+        });
 
+        showLabelsCheckBox.setSelected(true);
         showLabelsCheckBox.setText("Show Labels");
+        showLabelsCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                showLabelsCheckBoxStateChanged(evt);
+            }
+        });
 
+        showValuesCheckBox.setSelected(true);
         showValuesCheckBox.setText("Show Values");
+        showValuesCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                showValuesCheckBoxStateChanged(evt);
+            }
+        });
 
         correctFormulaButton.setText("Correct Formula");
         correctFormulaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -171,23 +201,52 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void correctFormulaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correctFormulaButtonActionPerformed
-       int max=Integer.valueOf(maxTextField.getText());
-       int min=Integer.valueOf(minTextField.getText());
-       int count=Integer.valueOf(numberTextField.getText());
-       randomNumbers.clear();
-       randomNumbers.addSeries(count, min, max);
-       //numbersInfo=new NumberInfos("Correct formula: "+count+" values");
-       
+        if (!maxTextField.getText().isEmpty() && !minTextField.getText().isEmpty() && !numberTextField.getText().isEmpty()) {
+            int max = Integer.valueOf(maxTextField.getText());
+            int min = Integer.valueOf(minTextField.getText());
+            int count = Integer.valueOf(numberTextField.getText());
+            if (max > min && count > 0) {
+                randomNumbers.clear();
+                randomNumbers.addSeries(count, min, max);
+                numberInfos = new NumberInfos("Correct formula: " + count + " values");
+                for (int i = min; i <= max; i++) {
+                    int maxCount = randomNumbers.count(i);
+                    numberInfos.add(maxCount, "V:" + i);
+                }
+                updateView();
+            }
+        }
     }//GEN-LAST:event_correctFormulaButtonActionPerformed
 
     private void incorrectFormulaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incorrectFormulaButtonActionPerformed
-       int max=Integer.valueOf(maxTextField.getText());
-       int min=Integer.valueOf(minTextField.getText());
-       int count=Integer.valueOf(numberTextField.getText());
-       randomNumbers.clear();
-       randomNumbers.addSeries(count, min, max);
-       //numbersInfo=new NumberInfos("Incorrect formula: "+count+" values");
+        if (!maxTextField.getText().isEmpty() && !minTextField.getText().isEmpty() && !numberTextField.getText().isEmpty()) {
+            int max = Integer.valueOf(maxTextField.getText());
+            int min = Integer.valueOf(minTextField.getText());
+            int count = Integer.valueOf(numberTextField.getText());
+            if (max > min && count > 0) {
+                randomNumbers.clear();
+                randomNumbers.addSeries(count, min, max);
+                numberInfos = new NumberInfos("Incorrect formula: " + count + " values");
+                for (int i = min; i <= max; i++) {
+                    int maxCount = randomNumbers.count(i);
+                    numberInfos.add(maxCount, "V:" + i);
+                }
+                updateView();
+            }
+        }
     }//GEN-LAST:event_incorrectFormulaButtonActionPerformed
+
+    private void showTitleCheckBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_showTitleCheckBoxStateChanged
+        updateView();
+    }//GEN-LAST:event_showTitleCheckBoxStateChanged
+
+    private void showLabelsCheckBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_showLabelsCheckBoxStateChanged
+        updateView();
+    }//GEN-LAST:event_showLabelsCheckBoxStateChanged
+
+    private void showValuesCheckBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_showValuesCheckBoxStateChanged
+        updateView();
+    }//GEN-LAST:event_showValuesCheckBoxStateChanged
 
     /**
      * @param args the command line arguments

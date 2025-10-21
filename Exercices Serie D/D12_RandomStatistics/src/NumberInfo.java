@@ -57,7 +57,7 @@ public class NumberInfo {
      * @param width  largeur 
      * @param heightFactor facteur d'agrandissement en hauteur
      */
-    public void draw(Graphics g, Color color, int left, int bottom, int width, double heightFactor) {
+    public void draw(Graphics g, Color color, int left, int bottom, int width, double heightFactor, boolean showLabel, boolean showValue) {
         g.setColor(color);                
         //hauteur d'un rectangle
         int barHeight = (int)(value*heightFactor);                   
@@ -70,8 +70,12 @@ public class NumberInfo {
                    width,        barHeight);
         //afficher le libellé et la valeur
         g.setColor(Color.BLUE);
-        g.drawString(                label , left+2, bottom-4);
-        g.drawString( String.valueOf(value), left+2, bottom-18);            
+        if(showLabel){
+          g.drawString(                label , left+2, bottom-4);  
+        }
+        if(showValue){
+           g.drawString( String.valueOf(value), left+2, bottom-18);  
+        }
      }    
 
 }

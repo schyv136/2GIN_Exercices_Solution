@@ -1,7 +1,3 @@
-
-import java.awt.Color;
-import java.awt.Graphics;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -12,28 +8,12 @@ import java.awt.Graphics;
  * @author SchYv136
  */
 public class DrawPanel extends javax.swing.JPanel {
-    
-    private NumberInfos numberInfos;
 
     /**
      * Creates new form DrawPanel
      */
     public DrawPanel() {
         initComponents();
-    }
-    
-    public void setNumberInfo(NumberInfos pNumberInfos){
-        numberInfos=pNumberInfos;
-    }
-    
-    public void paintComponent(Graphics g){
-        int height=getHeight();
-        int width=getWidth();
-        g.setColor(Color.white);
-        g.fillRect(0, 0, width-1, height-1);
-        if(numberInfos!=null){
-           numberInfos.draw(g, width, height);
-        }
     }
 
     /**
