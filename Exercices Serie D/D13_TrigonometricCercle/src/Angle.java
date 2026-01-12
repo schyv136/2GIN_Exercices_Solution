@@ -48,15 +48,16 @@ public class Angle {
         g.drawLine(0, (int)centerY, width, (int)centerY);
         g.drawLine((int)centerX, 0, (int)centerX, height);
         g.drawOval((int)(centerX-radius), (int)(centerY-radius), (int)(2*radius), (int)(2*radius));
-        //drawing the axis
+        //pC is the point on the circle
         Point pC=new Point((int)(centerX+cos*radius), (int)(centerY-sin*radius));
         g.drawLine((int)centerX, (int)(centerY-sin*radius), pC.x, pC.y);
         g.drawLine(pC.x, pC.y, pC.x, (int)centerY);
-        int sign=(int)(Math.ceil(cos));
-        System.out.println("Sign"+sign);
-        Point pT=new Point((int)(centerX+radius*(sign)),(int)(centerY-tan*radius));
+        //sign is used to determine if the angle is positive or negative
+        int sign=(int)(Math.signum(cos));
+        //pT is the point on the tangent line
+        Point pT=new Point((int)(centerX+radius*sign),(int)(centerY-tan*radius*sign));
         g.drawLine((int)centerX, (int)centerY, pT.x, pT.y);
-        
+        //drawing the colored lines
         g.setColor(Color.green);
         g.drawLine((int)centerX, (int)(centerY-sin*radius), (int)centerX, (int)centerY);
         g.setColor(Color.blue);
