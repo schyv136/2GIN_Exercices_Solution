@@ -1,5 +1,7 @@
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 
 /**
  *
@@ -24,16 +26,43 @@ public class Angle {
         return degrees;
     }
     public double getSin(){
-        return Math.sin(degrees);
+        return Math.sin(getRadians());
     }
     public double getCos(){
-        return Math.cos(degrees);
+        return Math.cos(getRadians());
     }
     public double getTan(){
-        return Math.tan(degrees);
+        return Math.tan(getRadians());
     }
     public void draw(Graphics g, int width, int height){
+        double centerX=Math.round(width/2.0);
+        double centerY=Math.round(height/2.0);
+        double radius=Math.round(Math.min(height, width)/4.0);
+        double cos=getCos();
+        double sin=getSin();
+        double tan=getTan();
+        g.setColor(Color.white);
+        g.fillRect(0, 0, width-1, height-1);
+        //drawing horizontal & vertical line, and the circle
+        g.setColor(Color.LIGHT_GRAY);
+        g.drawLine(0, (int)centerY, width, (int)centerY);
+        g.drawLine((int)centerX, 0, (int)centerX, height);
+        g.drawOval((int)(centerX-radius), (int)(centerY-radius), (int)(2*radius), (int)(2*radius));
+        //drawing the axis
+        Point pC=new Point((int)(centerX+cos*radius), (int)(centerY-sin*radius));
+        g.drawLine((int)centerX, (int)(centerY-sin*radius), pC.x, pC.y);
+        g.drawLine(pC.x, pC.y, pC.x, (int)centerY);
+        int sign=(int)(Math.ceil(cos));
+        System.out.println("Sign"+sign);
+        Point pT=new Point((int)(centerX+radius*(sign)),(int)(centerY-tan*radius));
+        g.drawLine((int)centerX, (int)centerY, pT.x, pT.y);
         
+        g.setColor(Color.green);
+        g.drawLine((int)centerX, (int)(centerY-sin*radius), (int)centerX, (int)centerY);
+        g.setColor(Color.blue);
+        g.drawLine((int)centerX, (int)centerY, pC.x, (int) centerY);
+        g.setColor(Color.MAGENTA);
+        g.drawLine((int)(centerX+radius*sign), (int)centerY, pT.x, pT.y);
     }
     
     

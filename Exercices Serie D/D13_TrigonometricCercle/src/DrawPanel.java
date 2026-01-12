@@ -1,3 +1,6 @@
+
+import java.awt.Graphics;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -8,12 +11,22 @@
  * @author SchYv136
  */
 public class DrawPanel extends javax.swing.JPanel {
+    
+    private Angle angle=new Angle(0);
+
+    public void setAngle(Angle angle) {
+        this.angle = angle;
+    }
 
     /**
      * Creates new form DrawPanel
      */
     public DrawPanel() {
         initComponents();
+    }
+    
+    protected void paintComponent(Graphics g){
+        angle.draw(g, getWidth(), getHeight());
     }
 
     /**

@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 
+
 /*
  * Cette classe représente la liste des inscriptions
  * 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Participants {
 
-    private ArrayList<Participant> alParticipants = new ArrayList<>();
+    private ArrayList<Participant> alParticipants=new ArrayList();
 
     //operations are decided upon the value of 'order' (the current oder criteria)
     public static final int BYNAME = 0;
@@ -135,6 +136,7 @@ public class Participants {
             int currentBirthYear = alParticipants.get(middleIndex).getBirthYear();
             if (currentBirthYear == pBirthYear) {
                 found = true;
+                return middleIndex;
             } else if (currentBirthYear > pBirthYear) {
                 upperLimit = middleIndex - 1;
             } else {
