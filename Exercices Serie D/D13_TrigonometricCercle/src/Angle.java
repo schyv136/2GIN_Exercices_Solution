@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -58,12 +59,26 @@ public class Angle {
         Point pT=new Point((int)(centerX+radius*sign),(int)(centerY-tan*radius*sign));
         g.drawLine((int)centerX, (int)centerY, pT.x, pT.y);
         //drawing the colored lines
+        g.setColor(Color.red);
+        g.drawLine((int)centerX, (int)centerY, pC.x, pC.y);
         g.setColor(Color.green);
         g.drawLine((int)centerX, (int)(centerY-sin*radius), (int)centerX, (int)centerY);
         g.setColor(Color.blue);
         g.drawLine((int)centerX, (int)centerY, pC.x, (int) centerY);
         g.setColor(Color.MAGENTA);
         g.drawLine((int)(centerX+radius*sign), (int)centerY, pT.x, pT.y);
+        //drawing the text on the panel
+        g.setFont(new Font("Courier New", Font.BOLD, 14));
+        g.setColor(Color.red);
+        g.drawString("Angle (degrees) :"+degrees, 10, 20);
+        g.drawString("Angle (radians) :"+getRadians(), 10, 40);
+        g.setColor(Color.green);
+        g.drawString("Sinus           :"+getSin(), 10, 60);
+        g.setColor(Color.BLUE);
+        g.drawString("Cosinus         :"+getCos(), 10, 80);
+        g.setColor(Color.magenta);
+        g.drawString("Tangens         :"+getTan(), 10, 100);
+        
     }
     
     
