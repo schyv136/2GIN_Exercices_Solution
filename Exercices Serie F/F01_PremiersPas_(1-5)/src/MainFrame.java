@@ -5,10 +5,12 @@ import java.awt.Graphics;
 /**
  * Class name: MainFrame
  *
- * @version 2019
- * @author fabfr
+ * @version 2026
+ * @author fabfr, scy
  */
 public class MainFrame extends javax.swing.JFrame {
+
+    private Graphics g;
 
     /**
      * Creates new form MainFrame
@@ -16,6 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         System.out.println("Constructor : " + Thread.currentThread());
+        g = getGraphics();
     }
 
     /**
@@ -33,6 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 formMouseMoved(evt);
             }
+
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
             }
@@ -41,9 +45,11 @@ public class MainFrame extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
             }
+
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 formMouseReleased(evt);
             }
+
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
             }
@@ -52,12 +58,12 @@ public class MainFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -65,7 +71,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         System.out.println("formMouseClicked : " + Thread.currentThread());
-        Graphics g = getGraphics();
         g.setColor(Color.yellow);
         g.drawLine(evt.getX(), evt.getY(), evt.getX(), evt.getY());
         g.fillOval(evt.getX() - 3, evt.getY() - 3, 6, 6);
@@ -73,27 +78,23 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         System.out.println("formMousePressed : " + Thread.currentThread());
-        Graphics g = getGraphics();
         g.setColor(Color.red);
         g.drawLine(evt.getX(), evt.getY(), evt.getX(), evt.getY());
         g.drawOval(evt.getX() - 3, evt.getY() - 3, 6, 6);
     }//GEN-LAST:event_formMousePressed
 
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
-        Graphics g = getGraphics();
         g.setColor(Color.blue);
         g.drawLine(evt.getX(), evt.getY(), evt.getX(), evt.getY());
         g.drawOval(evt.getX() - 3, evt.getY() - 3, 6, 6);
     }//GEN-LAST:event_formMouseReleased
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        Graphics g = getGraphics();
         g.setColor(Color.black);
         g.drawLine(evt.getX(), evt.getY(), evt.getX(), evt.getY());
     }//GEN-LAST:event_formMouseDragged
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
-        Graphics g = getGraphics();
         g.setColor(Color.green);
         g.drawLine(evt.getX(), evt.getY(), evt.getX(), evt.getY());
     }//GEN-LAST:event_formMouseMoved

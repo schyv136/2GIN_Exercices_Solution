@@ -26,10 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="drawPanel" pref="510" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="startStopButton" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="stepButton" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="startStopButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -40,23 +37,13 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="startStopButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="stepButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Component class="DrawPanel" name="drawPanel">
-    </Component>
-    <Component class="javax.swing.JButton" name="stepButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Step"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stepButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="startStopButton">
       <Properties>
